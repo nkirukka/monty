@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 	ssize_t bytes_read;
 	size_t len = 0;
 	char *line = NULL;
+	int line_number = 0;
 
 	if (argc != 2)
 	{
@@ -34,7 +35,9 @@ int main(int argc, char *argv[])
 		{
 			while ((bytes_read = getline(&line, &len, fp)) != -1)
 			{
-				printf("bread: %d, len: %d, line: %s", (int)bytes_read, (int)len, line);	     
+				line_number++;
+				printf("b_read: %d, line: %s", (int)bytes_read, line);
+				tokenizer(line, line_number);
 			}
 			printf("bytes read EOF: %d\n", (int)bytes_read);
 			free(line);

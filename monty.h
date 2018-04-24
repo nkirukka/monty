@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <string.h>
 
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
@@ -40,5 +41,6 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+int tokenizer(char *line, int line_number);
 
 #endif
