@@ -1,5 +1,14 @@
 #include "monty.h"
 
+
+/**
+ * main - opens monty file and reads lines
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: 0 success, 1 failure
+ */
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
