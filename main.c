@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	char *line = NULL;
 	int line_number = 0;
-
+	stack_t **head = NULL;
 
 	if (argc != 2)
 	{
@@ -41,6 +41,9 @@ int main(int argc, char *argv[])
 				get_tokens(line, line_number);
 			}
 			printf("bytes read EOF: %d\n", (int)bytes_read);
+
+			get_func("pop", head, line_number);
+
 			free(line);
 			fclose(fp);
 		}
