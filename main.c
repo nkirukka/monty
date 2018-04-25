@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 	char *line = NULL;
 	int line_number = 0;
 
+
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
@@ -24,7 +25,6 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		printf("Successfully passed validation of file input\n");
 		fp = fopen(argv[1], "r");
 		if (fp == NULL)
 		{
@@ -36,8 +36,9 @@ int main(int argc, char *argv[])
 			while ((bytes_read = getline(&line, &len, fp)) != -1)
 			{
 				line_number++;
+				printf("-------------------------\n");
 				printf("b_read: %d, line: %s", (int)bytes_read, line);
-				tokenizer(line, line_number);
+				get_tokens(line, line_number);
 			}
 			printf("bytes read EOF: %d\n", (int)bytes_read);
 			free(line);

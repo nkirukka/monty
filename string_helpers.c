@@ -1,17 +1,17 @@
 #include "monty.h"
 
 /**
- * tokenizer - tokenize line from file
+ * get_tokens - get tokens from line
  * @line: line from file
  * @line_number: line number
  *
- * Return: 0 if success, 1 if failure
+ * Return: int
  */
 
-int tokenizer(char *line, unsigned int line_number)
+int get_tokens(char *line, unsigned int line_number)
 {
 	char delim[2] = "\n ";
-	char *token;
+	char *token = NULL;
 
 	printf("line number %d\n", (int)line_number);
 	token = strtok(line, delim);
