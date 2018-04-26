@@ -1,11 +1,11 @@
 #include "monty.h"
 
-
 /**
  * is_number - checks to see if input is a number
  * @s: input to check for numberhood
  * Return: 1 if it is a number, 0 if not
  */
+
 int is_number(char *s)
 {
 	int i;
@@ -33,21 +33,19 @@ int is_number(char *s)
  * Return: int
  */
 
-char * get_tokens(char *line, unsigned int line_number)
+char *get_tokens(char *line, unsigned int line_number)
 {
 	char delim[2] = "\n ";
 	char *token = NULL;
 	char *holder = NULL;
 
-	printf("line number %d\n", (int)line_number);
 	token = strtok(line, delim);
-	printf("first token: %s\n", token);
 	if (token == NULL)
 		return (NULL);
 	holder = strtok(NULL, delim);
 	if (holder != NULL)
 	{
-		if (is_number(holder))	
+		if (is_number(holder))
 			global_var = atoi(holder);
 		else
 		{
@@ -55,6 +53,5 @@ char * get_tokens(char *line, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
-	/*printf("second token (global var) %d\n", global_var);*/
 	return (token);
 }

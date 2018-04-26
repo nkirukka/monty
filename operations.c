@@ -9,11 +9,10 @@
 void push_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)))
 {
 	stack_t *new = NULL;
-	printf("------------\n");
-	printf("push func: ");
+
+
 	if (stack == NULL)
 		printf("stack is NULL, ");
-	printf("line number: %d\n", line_number);
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -33,7 +32,6 @@ void push_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)
 	new->next = *stack;
 	(*stack)->prev = new;
 	*stack = new;
-	printf("value of new->n: %d\n", new->n);
 }
 
 /**
@@ -54,11 +52,6 @@ void pall_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)
 		printf("%d\n",temp->n);
 		temp = temp->next;
 	}
-	/*printf("------------\n");
-	printf("pall func: ");
-	if (stack == NULL)
-		printf("stack is NULL, ");
-	printf("line number: %d\n", line_number);*/
 }
 
 /**
