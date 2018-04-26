@@ -54,7 +54,23 @@ void pall_func(stack_t **stack, unsigned int line_number)
 		temp = temp->next;
 	}
 }
+/**
+ * pint_func - prints the value at the top of the stack
+ * @stack: stack
+ * @line_number: line number
+ */
+void pint_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = NULL;
 
+	if (*stack == NULL)
+	{
+		printf("L%d: can't print, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	printf("%d\n", temp->n);
+}
 /**
  * get_func - matches opcode from input to existing opcode in struct
  * @op: character to check
@@ -69,6 +85,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 	instruction_t find_op[] = {
 		{"push", push_func},
 		{"pall", pall_func},
+		{"pint", pint_func},
 		{NULL, NULL}
 	};
 	int index = 0;
