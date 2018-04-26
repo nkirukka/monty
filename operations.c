@@ -6,10 +6,11 @@
  * @line_number: line number
  */
 
-void push_func(stack_t **stack, __attribute__((unused))unsigned int line_number)
+void push_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = NULL;
 
+	(void) line_number;
 	if (stack == NULL)
 		printf("stack is NULL, ");
 
@@ -39,10 +40,11 @@ void push_func(stack_t **stack, __attribute__((unused))unsigned int line_number)
  * @line_number: line number
  */
 
-void pall_func(stack_t **stack, __attribute__((unused))unsigned int line_number)
+void pall_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
 
+	(void) line_number;
 	temp = *stack;
 	if ((*stack) == NULL)
 		return;
