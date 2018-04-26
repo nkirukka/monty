@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 					get_func(token, &head, line_number);
 			}
 			free(line);
+			free_stack(head);
 			fclose(fp);
 		}
 	}

@@ -50,5 +50,5 @@ void pop_func(stack_t **stack, unsigned int line_number);
 void nop_func(stack_t **stack, unsigned int line_number);
 void get_func(char *op, stack_t **stack, unsigned int line_number);
 int is_number(char *s);
-
+void free_stack(stack_t *head);
 #endif
