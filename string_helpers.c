@@ -8,7 +8,7 @@
  * Return: int
  */
 
-int get_tokens(char *line, unsigned int line_number)
+char * get_tokens(char *line, unsigned int line_number)
 {
 	char delim[2] = "\n ";
 	char *token = NULL;
@@ -16,10 +16,7 @@ int get_tokens(char *line, unsigned int line_number)
 	printf("line number %d\n", (int)line_number);
 	token = strtok(line, delim);
 	printf("first token: %s\n", token);
-	while (token != NULL)
-	{
-		printf("token: %s\n", token);
-		token = strtok(NULL, delim);
-	}
-	return (0);
+	global_var = atoi(strtok(NULL, delim));
+	printf("second token (global var) %d\n", global_var);
+	return (token);
 }
