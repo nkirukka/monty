@@ -38,13 +38,13 @@ int main(int argc, char *argv[])
 			{
 				line_number++;
 				printf("-------------------------\n");
-				printf("b_read: %d, line: %s", (int)bytes_read, line);
+				printf("bytes read: %d, line: %s", (int)bytes_read, line);
 				token = get_tokens(line, line_number);
 				if (token != NULL)
 					get_func(token, head, line_number);
 			}
 			printf("bytes read EOF: %d\n", (int)bytes_read);
-
+			printf("extern var outside while in main: %d\n", global_var);
 			free(line);
 			fclose(fp);
 		}

@@ -13,11 +13,9 @@ void push_func(stack_t **stack, unsigned int line_number)
 	printf("push func: ");
 	if (stack == NULL)
 		printf("stack is NULL, ");
-	printf("line number SEGFAA: %d\n", line_number);
-	printf("SEGHERE??");
+	printf("line number: %d\n", line_number);
 
 	new = malloc(sizeof(stack_t));
-	printf("SEGHERE?????");
 	if (new == NULL)
 	{
 		printf("Error: malloc failed\n");
@@ -34,8 +32,9 @@ void push_func(stack_t **stack, unsigned int line_number)
 	new->next = *stack;
 	(*stack)->prev = new;
 	*stack = new;
-	printf("value of n%d\n", new->n);
+	printf("value of new->n: %d\n", new->n);
 }
+
 /**
  * pall_func - prints all the values on the stack, starting from the top
  * @stack - stack
@@ -71,6 +70,7 @@ void get_func(char *op, stack_t *stack, unsigned int line_number)
 		if (strcmp(find_op[index].opcode, op) == 0)
 		{
 			find_op[index].f(&stack, line_number);
+			return;
 		}
 		index++;
 	}
