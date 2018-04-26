@@ -6,10 +6,9 @@
  * @line_number: line number
  */
 
-void push_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)))
+void push_func(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *new = NULL;
-
 
 	if (stack == NULL)
 		printf("stack is NULL, ");
@@ -36,11 +35,11 @@ void push_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)
 
 /**
  * pall_func - prints all the values on the stack, starting from the top
- * @stack - stack
+ * @stack: stack
  * @line_number: line number
  */
 
-void pall_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)))
+void pall_func(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp = NULL;
 
@@ -49,14 +48,17 @@ void pall_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)
 		return;
 	while (temp)
 	{
-		printf("%d\n",temp->n);
+		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
 }
 
 /**
- * get_op - matches opcode from input to existing opcode in struct
+ * get_func - matches opcode from input to existing opcode in struct
  * @op: character to check
+ * @stack: stack
+ * @line_number: line number
+ *
  * Return: the pointer to the appropriate function or NULL if nothing matches
  */
 

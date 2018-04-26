@@ -49,7 +49,7 @@ char *get_tokens(char *line, unsigned int line_number)
 			global_var = atoi(holder);
 		else
 		{
-			printf("L%d: unknown instruction %s\n",line_number, token);
+			printf("L%d: unknown instruction %s\n", line_number, token);
 			exit(EXIT_FAILURE);
 		}
 	}
