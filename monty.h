@@ -45,6 +45,8 @@ char *get_tokens(char *line, unsigned int line_number);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
 void pint_func(stack_t **stack, unsigned int line_number);
+void pop_func(stack_t **stack, unsigned int line_number);
 void get_func(char *op, stack_t **stack, unsigned int line_number);
 int is_number(char *s);
+
 #endif

@@ -71,6 +71,29 @@ void pint_func(stack_t **stack, unsigned int line_number)
 	temp = *stack;
 	printf("%d\n", temp->n);
 }
+
+/**
+ * pop_func - pop top node in stack
+ * @stack: stack
+ * @line_number: line number
+ */
+void pop_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (*stack == NULL || stack == NULL)
+	{
+		printf("L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	*stack = temp->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(temp);
+}
+
 /**
  * get_func - matches opcode from input to existing opcode in struct
  * @op: character to check
@@ -86,6 +109,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		{"push", push_func},
 		{"pall", pall_func},
 		{"pint", pint_func},
+		{"pop", pop_func},
 		{NULL, NULL}
 	};
 	int index = 0;
