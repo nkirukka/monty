@@ -11,9 +11,6 @@ void push_func(stack_t **stack, unsigned int line_number)
 	stack_t *new = NULL;
 
 	(void) line_number;
-	if (stack == NULL)
-		printf("stack is NULL, ");
-
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
