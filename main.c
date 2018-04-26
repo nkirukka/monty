@@ -1,6 +1,5 @@
 #include "monty.h"
 
-int global_var = NULL;
 /**
  * main - opens monty file and reads lines
  * @argc: number of arguments

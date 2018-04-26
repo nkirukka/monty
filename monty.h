@@ -11,6 +11,7 @@
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 extern int global_var;
+int global_var;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -46,6 +47,7 @@ void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
 void pint_func(stack_t **stack, unsigned int line_number);
 void pop_func(stack_t **stack, unsigned int line_number);
+void nop_func(stack_t **stack, unsigned int line_number);
 void get_func(char *op, stack_t **stack, unsigned int line_number);
 int is_number(char *s);
 

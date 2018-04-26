@@ -107,6 +107,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		{"pall", pall_func},
 		{"pint", pint_func},
 		{"pop", pop_func},
+		{"nop", nop_func},
 		{NULL, NULL}
 	};
 	int index = 0;
