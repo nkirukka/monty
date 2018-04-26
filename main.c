@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 				printf("bytes read: %d, line: %s", (int)bytes_read, line);
 				token = get_tokens(line, line_number);
 				if (token != NULL)
-					get_func(token, head, line_number);
+					get_func(token, &head, line_number);
 			}
 			printf("bytes read EOF: %d\n", (int)bytes_read);
 			printf("extern var outside while in main: %d\n", global_var);

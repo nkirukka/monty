@@ -56,7 +56,7 @@ void pall_func(stack_t **stack, unsigned int line_number)
  * Return: the pointer to the appropriate function or NULL if nothing matches
  */
 
-void get_func(char *op, stack_t *stack, unsigned int line_number)
+void get_func(char *op, stack_t **stack, unsigned int line_number)
 {
 	instruction_t find_op[] = {
 		{"push", push_func},
@@ -69,7 +69,7 @@ void get_func(char *op, stack_t *stack, unsigned int line_number)
 	{
 		if (strcmp(find_op[index].opcode, op) == 0)
 		{
-			find_op[index].f(&stack, line_number);
+			find_op[index].f(stack, line_number);
 			return;
 		}
 		index++;
