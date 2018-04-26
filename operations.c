@@ -28,6 +28,7 @@ void push_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)
 	{
 		new->next = NULL;
 		*stack = new;
+		return;
 	}
 	new->next = *stack;
 	(*stack)->prev = new;
@@ -43,13 +44,15 @@ void push_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)
 
 void pall_func(stack_t **stack, unsigned int line_number __attribute__ ((unused)))
 {
+	stack_t *temp = NULL;
 
+	temp = *stack;
 	if ((*stack) == NULL)
 		return;
-	while (*stack != NULL)
+	while (temp)
 	{
-		printf("%d\n",(*stack)->n);
-		*stack = (*stack)->next;
+		printf("%d\n",temp->n);
+		temp = temp->next;
 	}
 	/*printf("------------\n");
 	printf("pall func: ");
