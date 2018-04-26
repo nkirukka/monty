@@ -8,11 +8,31 @@
 
 void push_func(stack_t **stack, unsigned int line_number)
 {
+	stack_t *new = NULL;
 	printf("------------\n");
 	printf("push func: ");
 	if (stack == NULL)
 		printf("stack is NULL, ");
 	printf("line number: %d\n", line_number);
+
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+	{
+		printf("Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	new->n = global_var;
+	new->prev = NULL;
+
+	if (*stack == NULL)
+	{
+		new->next = NULL;
+		*stack = new;
+	}
+	new->next = *stack;
+	(*stack)->prev = new;
+	*stack = new;
+	printf("value of new->n: %d\n", new->n);
 }
 
 /**
@@ -36,7 +56,7 @@ void pall_func(stack_t **stack, unsigned int line_number)
  * Return: the pointer to the appropriate function or NULL if nothing matches
  */
 
-void get_func(char *op, stack_t **stack, unsigned int line_number)
+void get_func(char *op, stack_t *stack, unsigned int line_number)
 {
 	instruction_t find_op[] = {
 		{"push", push_func},
@@ -49,7 +69,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 	{
 		if (strcmp(find_op[index].opcode, op) == 0)
 		{
-			find_op[index].f(stack, line_number);
+			find_op[index].f(&stack, line_number);
 			return;
 		}
 		index++;

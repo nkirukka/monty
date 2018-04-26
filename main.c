@@ -1,6 +1,6 @@
 #include "monty.h"
 
-
+int global_var = NULL;
 /**
  * main - opens monty file and reads lines
  * @argc: number of arguments
@@ -15,8 +15,9 @@ int main(int argc, char *argv[])
 	ssize_t bytes_read;
 	size_t len = 0;
 	char *line = NULL;
+	char *token = NULL;
 	int line_number = 0;
-	stack_t **head = NULL;
+	stack_t *head = NULL;
 
 	if (argc != 2)
 	{
@@ -37,13 +38,13 @@ int main(int argc, char *argv[])
 			{
 				line_number++;
 				printf("-------------------------\n");
-				printf("b_read: %d, line: %s", (int)bytes_read, line);
-				get_tokens(line, line_number);
+				printf("bytes read: %d, line: %s", (int)bytes_read, line);
+				token = get_tokens(line, line_number);
+				if (token != NULL)
+					get_func(token, head, line_number);
 			}
 			printf("bytes read EOF: %d\n", (int)bytes_read);
-
-			get_func("pop", head, line_number);
-
+			printf("extern var outside while in main: %d\n", global_var);
 			free(line);
 			fclose(fp);
 		}
