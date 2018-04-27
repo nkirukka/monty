@@ -62,7 +62,7 @@ void pint_func(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		printf("L%d: can't print, stack empty\n", line_number);
+		printf("L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
@@ -108,6 +108,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		{"pint", pint_func},
 		{"pop", pop_func},
 		{"nop", nop_func},
+		{"add", add_func},
 		{NULL, NULL}
 	};
 	int index = 0;
