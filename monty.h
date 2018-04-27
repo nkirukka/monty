@@ -52,6 +52,7 @@ void swap_func(stack_t **stack, unsigned int line_number);
 void add_func(stack_t **stack, unsigned int line_number);
 void sub_func(stack_t **stack, unsigned int line_number);
 void div_func(stack_t **stack, unsigned int line_number);
+void mul_func(stack_t **stack, unsigned int line_number);
 void get_func(char *op, stack_t **stack, unsigned int line_number);
 int is_number(char *s);
 void free_stack(stack_t *head);

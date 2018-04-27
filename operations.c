@@ -112,6 +112,7 @@ void get_func(char *op, stack_t **stack, unsigned int line_number)
 		{"swap", swap_func},
 		{"sub", sub_func},
 		{"div", div_func},
+		{"mul", mul_func},
 		{NULL, NULL}
 	};
 	int index = 0;
