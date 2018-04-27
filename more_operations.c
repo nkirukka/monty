@@ -84,3 +84,26 @@ void sub_func(stack_t **stack, unsigned int line_number)
 
 	pop_func(stack, line_number);
 }
+
+/**
+ * div_func - divides the second top element of the stack by the top element
+ * @stack: stack
+ * @line_number: line number
+ */
+
+void div_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = NULL;
+	int quotient = 0;
+
+	temp = *stack;
+	if (temp == NULL || temp->next == NULL)
+	{
+		printf("L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	quotient = temp->next->n / temp->n;
+	temp->next->n = quotient;
+
+	pop_func(stack, line_number);
+}
