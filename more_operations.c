@@ -61,3 +61,26 @@ void swap_func(stack_t **stack, unsigned int line_number)
 	*stack = second;
 
 }
+
+/**
+ * sub_func - subtracts the top element from the second top element
+ * @stack: stack
+ * @line_number: line number
+ */
+
+void sub_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = NULL;
+	int diff = 0;
+
+	temp = *stack;
+	if (temp == NULL || temp->next == NULL)
+	{
+		printf("L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	diff = temp->next->n - temp->n;
+	temp->next->n = diff;
+
+	pop_func(stack, line_number);
+}
