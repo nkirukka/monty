@@ -102,6 +102,11 @@ void div_func(stack_t **stack, unsigned int line_number)
 		printf("L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	if (temp->n == 0)
+	{
+		printf("L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	quotient = temp->next->n / temp->n;
 	temp->next->n = quotient;
 
